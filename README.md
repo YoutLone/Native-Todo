@@ -79,7 +79,7 @@ Typescript
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://drive.google.com/file/d/1j0fEbcevweNO-k-D4A3T8qcmt6m_Cj3I/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 💻 Getting Started <a name="getting-started"></a>
