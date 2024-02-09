@@ -31,7 +31,7 @@ const SearchScreen: React.FC = ({ navigation }) => {
               <Text style={styles.todoTitle}>{item.title}</Text>
               <Text style={styles.todoDescription}>{item.description}</Text>
               <TouchableOpacity
-                style={[styles.button, styles.detailsButton]} // Combine styles for the button
+                style={[styles.button, styles.detailsButton]} 
                 onPress={() => navigation.navigate('Detail', { todo: item })}
               >
                 <Text style={styles.buttonText}>Details</Text>

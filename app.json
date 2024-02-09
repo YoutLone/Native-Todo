@@ -2,6 +2,7 @@
   "expo": {
     "name": "Quibit-Todo",
     "slug": "Quibit-Todo",
+    "description": "This is the basic Todo App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
