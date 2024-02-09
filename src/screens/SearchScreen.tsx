@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
@@ -12,31 +12,35 @@ const SearchScreen: React.FC = ({ navigation }) => {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Search Todo</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Type title to search"
-        value={searchText}
-        onChangeText={(text) => setSearchText(text)}
-      />
-      <FlatList
-        data={filteredTodos}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.todoContainer}>
-            <Text style={styles.todoTitle}>{item.title}</Text>
-            <Text style={styles.todoDescription}>{item.description}</Text>
-            <TouchableOpacity
-              style={[styles.button, styles.detailsButton]} // Combine styles for the button
-              onPress={() => navigation.navigate('Detail', { todo: item })}
-            >
-              <Text style={styles.buttonText}>Details</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
-    </View>
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+    }}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Search Todo</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Type title to search"
+          value={searchText}
+          onChangeText={(text) => setSearchText(text)}
+        />
+        <FlatList
+          data={filteredTodos}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.todoContainer}>
+              <Text style={styles.todoTitle}>{item.title}</Text>
+              <Text style={styles.todoDescription}>{item.description}</Text>
+              <TouchableOpacity
+                style={[styles.button, styles.detailsButton]} // Combine styles for the button
+                onPress={() => navigation.navigate('Detail', { todo: item })}
+              >
+                <Text style={styles.buttonText}>Details</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

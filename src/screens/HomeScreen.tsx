@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { addTodo } from '../redux/slices/todoSlice';
@@ -45,6 +45,9 @@ const HomeScreen: React.FC = ({ navigation }) => {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+    }}>
     <View style={styles.container}>
       <Text style={styles.title}>Create Your Task</Text>
       <TextInput
@@ -88,6 +91,7 @@ const HomeScreen: React.FC = ({ navigation }) => {
         )}
         />
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { editTodo } from '../redux/slices/todoSlice';
 
@@ -31,41 +31,45 @@ const EditScreen: React.FC = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Change Title :</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Edit title"
-          value={editedTitle}
-          onChangeText={(text) => setEditedTitle(text)}
-        />
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+    }}>
+      <View style={styles.container}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Change Title :</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Edit title"
+            value={editedTitle}
+            onChangeText={(text) => setEditedTitle(text)}
+          />
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Change Description :</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Edit description"
+            value={editedDescription}
+            onChangeText={(text) => setEditedDescription(text)}
+          />
+        </View>
+
+        <TouchableOpacity
+          style={[styles.button, styles.updateButton]}
+          onPress={handleUpdateTodo}
+        >
+          <Text style={styles.buttonText}>Update</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, styles.cancelButton]}
+          onPress={handleCancelEdit}
+        >
+          <Text style={styles.buttonText}>Cancel</Text>
+        </TouchableOpacity>
       </View>
-
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Change Description :</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Edit description"
-          value={editedDescription}
-          onChangeText={(text) => setEditedDescription(text)}
-        />
-      </View>
-
-      <TouchableOpacity
-        style={[styles.button, styles.updateButton]}
-        onPress={handleUpdateTodo}
-      >
-        <Text style={styles.buttonText}>Update</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[styles.button, styles.cancelButton]}
-        onPress={handleCancelEdit}
-      >
-        <Text style={styles.buttonText}>Cancel</Text>
-      </TouchableOpacity>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
