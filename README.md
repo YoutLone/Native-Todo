@@ -30,6 +30,32 @@
 
 This project is a straightforward todo app developed using React Native and TypeScript. Manage your daily tasks effortlessly – add new ones to your list and remove those you've accomplished and you can search your tasks.
 
+
+## Home Page
+
+<div align="center">
+  <img src="src/image/home.png" alt="logo"/>
+</div>
+
+## Detail Page
+
+<div align="center">
+  <img src="src/image/detail.png" alt="logo"/>
+</div>
+
+## Edit Page
+
+<div align="center">
+  <img src="src/image/edit.png" alt="logo"/>
+</div>
+
+## Search Page
+
+<div align="center">
+  <img src="src/image/search.png" alt="logo"/>
+</div>
+
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
